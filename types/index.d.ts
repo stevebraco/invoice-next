@@ -31,7 +31,7 @@ export type Invoice = {
 
 export interface UrlQueryParams {
   params: string;
-  key: string | null;
+  key: string;
   value: string | null;
 }
 
