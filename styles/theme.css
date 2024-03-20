@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .background-main {
+    @apply bg-light-400 dark:bg-dark-200;
+  }
+
+  .background-light {
+    @apply bg-primary-100 dark:bg-dark-600;
+  }
+
+  .h1 {
+    @apply text-[32px] dark:text-primary-100 font-bold;
+  }
+
+  .h2 {
+    @apply text-[20px] dark:text-primary-100 font-bold;
+  }
+
+  .h3-16 {
+    @apply text-[16px] dark:text-primary-100 font-bold;
+  }
+
+  .h3-12 {
+    @apply text-[12px] dark:text-primary-100 font-bold;
+  }
+
+  .text-12 {
+    @apply text-[12px] font-medium;
+  }
+
+  .text-11 {
+    @apply text-[11px] font-medium;
+  }
+
+  .text-light200 {
+    @apply text-light-200;
+  }
+
+  .text-light300 {
+    @apply text-light-300;
+    /* #858BB 2*/
+  }
+
+  .text-primary400dark-700 {
+    @apply text-primary-400 dark:text-dark-700;
+  }
+
+  .text-primary400 {
+    @apply text-primary-400;
+    /* 7E88C3 */
+  }
+
+  .bg-paid {
+    @apply p-3 bg-primary-200 bg-opacity-10;
+  }
+
+  .paid {
+    @apply text-primary-200 !important;
+  }
+
+  .circle-paid {
+    @apply bg-primary-200 w-[8px] h-[8px] rounded;
+  }
+
+  .pending {
+    @apply text-primary-300 !important;
+  }
+
+  .bg-pending {
+    @apply p-3 bg-primary-300 bg-opacity-10;
+  }
+
+  .circle-pending {
+    @apply bg-primary-300 w-[8px] h-[8px] rounded;
+  }
+
+  .draft {
+    @apply text-primary-700 dark:text-[#DFE3FA];
+  }
+
+  .bg-draft {
+    @apply p-3 bg-primary-700 bg-opacity-10;
+  }
+
+  .circle-draft {
+    @apply bg-primary-700 w-[8px] h-[8px] rounded dark:bg-[#DFE3FA];
+  }
+
+  /* .text-white-bg-purple600 {
+    @apply text-primary-100 bg-primary-600 w-[150px] h-[48px] rounded-full;
+  } */
+
+  .btn {
+    @apply font-bold px-6 py-4 rounded-full !important;
+  }
+
+  .btn-light {
+    @apply bg-light-400 text-light-200 font-bold dark:bg-[#252945] hover:bg-[#FFFFFF] hover:text-primary-400 !important;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-primary-100 font-bold hover:bg-[#FF9797] !important;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-primary-100 font-bold hover:bg-[#9277FF] !important;
+  }
+
+  .btn-dark {
+    @apply bg-primary-700 text-primary-400 rounded-full font-bold hover:text-[#DFE3FA] !important;
+  }
+}
