@@ -16,7 +16,7 @@ export type Item = {
 export type Invoice = {
   _id?: string;
   id?: string | undefined;
-  createdAt?: string | undefined;
+  createdAt?: any;
   paymentDue: any;
   description: string;
   paymentTerms: number;
