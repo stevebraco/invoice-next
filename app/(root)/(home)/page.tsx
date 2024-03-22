@@ -1,6 +1,5 @@
 import FilterInvoice from "@/components/FilterInvoice";
 import InvoiceList from "@/components/InvoiceList";
-import InvoiceList from "@/components/InvoiceList";
 import Pagination from "@/components/Pagination";
 import { getInvoices } from "@/lib/actions/invoices.action";
 import { SearchParamsProps } from "@/types";
