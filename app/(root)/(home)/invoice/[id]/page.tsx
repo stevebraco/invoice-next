@@ -24,7 +24,7 @@ const Page = async ({ params }: UrlProps) => {
         <InvoiceButtons
           invoice={JSON.stringify(result)}
           invoiceId={params.id}
-          containerClassNames="fixed bottom-0 left-0 right-0 w-full justify-evenly px-4 h-[91px] items-center z-10 bg-primary-100"
+          containerClassNames="fixed bottom-0 left-0 right-0 w-full justify-evenly px-4 h-[91px] items-center z-10 background-light"
         />
       </div>
       <Invoice invoice={result} />
