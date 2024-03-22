@@ -1,15 +1,18 @@
 import FilterInvoice from "@/components/FilterInvoice";
 import InvoiceList from "@/components/InvoiceList";
+import InvoiceList from "@/components/InvoiceList";
 import Pagination from "@/components/Pagination";
 import { getInvoices } from "@/lib/actions/invoices.action";
 import { SearchParamsProps } from "@/types";
 
 export default async function Home({ searchParams }: SearchParamsProps) {
-  const { invoices, isNext } = await getInvoices({
-    filter: searchParams.filter,
-    page: searchParams.page ? +searchParams.page : 1,
-  });
-  const result = JSON.parse(invoices);
+  // const { invoices, isNext } = await getInvoices({
+  //   filter: searchParams.filter,
+  //   page: searchParams.page ? +searchParams.page : 1,
+  // });
+  // const result = JSON.parse(invoices);
+  const result: any = [];
+  const isNext: any = false;
   return (
     <div className="md:px-3 pb-16 px-3">
       <div className="flex-between pt-14 flex-wrap">
