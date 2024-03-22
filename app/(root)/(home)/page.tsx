@@ -4,7 +4,7 @@ import Pagination from "@/components/Pagination";
 import { getInvoices } from "@/lib/actions/invoices.action";
 import { SearchParamsProps } from "@/types";
 
-const Page = async ({ searchParams }: SearchParamsProps) => {
+export default async function Home({ searchParams }: SearchParamsProps) {
   const { invoices, isNext } = await getInvoices({
     filter: searchParams.filter,
     page: searchParams.page ? +searchParams.page : 1,
@@ -33,6 +33,4 @@ const Page = async ({ searchParams }: SearchParamsProps) => {
       />
     </div>
   );
-};
-
-export default Page;
+}
