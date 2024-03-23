@@ -3,8 +3,10 @@ import Image from "next/image";
 import React from "react";
 import FullForm from "./FullForm";
 import { useActiveForm } from "@/context/ActiveFormProvider";
-import { UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Theme from "./Theme";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const LeftSideBar = () => {
   const { activeForm, setActiveForm } = useActiveForm();
@@ -36,7 +38,50 @@ const LeftSideBar = () => {
             <div className="flex md:flex-col items-stretch space-x-8 md:space-x-0 space-y-0 md:w-full md:space-y-11 ">
               <Theme />
               <div className="md:border-t border-l border-[#494E6E] flex-center md:h-[90px] md:w-full w-[90px]">
-                <UserButton />
+                <SignedIn>
+                  <UserButton
+                    afterSignOutUrl="/"
+                    appearance={{
+                      elements: {
+                        avatarBox: "h-10 w-10",
+                      },
+                      variables: {
+                        colorPrimary: "#ff7000",
+                      },
+                    }}
+                  />
+                </SignedIn>
+                <SignedOut>
+                  <div className="flex flex-col gap-3">
+                    <Link href="/sign-in">
+                      <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+                        <Image
+                          src="assets/icons/account.svg"
+                          alt="login"
+                          width={20}
+                          height={20}
+                          className="invert-colors lg:hidden"
+                        />
+                        <span className="primary-text-gradient max-lg:hidden">
+                          Log In
+                        </span>
+                      </Button>
+                    </Link>
+                    <Link href="/sign-up">
+                      <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+                        <Image
+                          src="assets/icons/sign-up.svg"
+                          alt="sign up"
+                          width={20}
+                          height={20}
+                          className="invert-colors lg:hidden"
+                        />
+
+                        <span className="max-lg:hidden">Sign Up</span>
+                      </Button>
+                    </Link>
+                  </div>
+                </SignedOut>
               </div>
             </div>
           </div>
