@@ -16,7 +16,6 @@ export async function createUser(userData: CreateUserParams) {
   }
 }
 
-
 export async function deleteUser(params: DeleteUserParams) {
   try {
     connectToDatabase();
