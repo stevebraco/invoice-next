@@ -41,11 +41,11 @@ const InvoiceButtons = ({
   const data = JSON.parse(invoice);
 
   useEffect(() => {
-    setActiveForm({ active: false, formValue: data });
+    setActiveForm((prev) => ({ ...prev, active: false, formValue: data }));
   }, []);
 
   const handleActiveForm = () => {
-    setActiveForm((prev) => ({ formValue: data, active: true }));
+    setActiveForm((prev) => ({ ...prev, formValue: data, active: true }));
   };
 
   function isEmpty(data: any) {
@@ -68,7 +68,11 @@ const InvoiceButtons = ({
 
   const handleMarkAsPaid = async () => {
     if (isEmpty(data)) {
-      setActiveForm((prevState) => ({ formValue: data, active: true }));
+      setActiveForm((prevState) => ({
+        ...prevState,
+        formValue: data,
+        active: true,
+      }));
     } else {
       await UpdateInvoiceStatusPaid({ id: data._id, path: pathname });
       toast({

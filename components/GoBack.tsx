@@ -27,7 +27,11 @@ const GoBack = ({
         className="h3-12"
         onClick={() => {
           router.push(link);
-          setActiveForm((prevState) => ({ active: false, formValue: {} }));
+          setActiveForm((prevState) => ({
+            ...prevState,
+            active: false,
+            formValue: {},
+          }));
         }}
       >
         Go back

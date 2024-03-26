@@ -9,7 +9,7 @@ const FilterInvoice = () => {
   const { setActiveForm } = useActiveForm();
 
   const handleActiveForm = () => {
-    setActiveForm({ active: true, formValue: {} });
+    setActiveForm((prev) => ({ ...prev, active: true, formValue: {} }));
   };
 
   return (
