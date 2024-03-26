@@ -37,7 +37,7 @@ const Pagination = ({ pageNumber, isNext }: Props) => {
         onClick={() => handleNavigation("prev")}
         className="light-border btn flex min-h-[36px] items-center justify-center gap border"
       >
-        <p className="">Prev</p>
+        <p className="dark:text-primary-100">Prev</p>
       </Button>
       <div className="flex items-center justify-center rounded-md bg-primary-600 px-3.5 py-2">
         <p className="body-semibold text-primary-100">{pageNumber}</p>
@@ -47,7 +47,7 @@ const Pagination = ({ pageNumber, isNext }: Props) => {
         onClick={() => handleNavigation("next")}
         className="light-border-2 btn flex min-h-[36px] items-center justify-center gap-2 border"
       >
-        <p className="">Next</p>
+        <p className="dark:text-primary-100">Next</p>
       </Button>
     </div>
   );
