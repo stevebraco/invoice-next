@@ -45,7 +45,6 @@ const useHookForm = (id?: string | undefined) => {
       setActiveForm((prevState) => ({ ...prevState, active: false }));
       return;
     }
-    console.log(data);
     const itemTotal = data.items.map((item) => ({
       ...item,
       total: item.quantity * item.price,
@@ -61,6 +60,7 @@ const useHookForm = (id?: string | undefined) => {
       ...invoiceMethod(date, data),
       items: itemTotal,
       total,
+      author: activeForm.userId,
     };
     console.log(invoice);
 

@@ -12,7 +12,7 @@ export default async function Home({ searchParams }: SearchParamsProps) {
   let mongoUser;
 
   if (clerkId) {
-    mongoUser = await getUserById({ clerkId });
+    mongoUser = await getUserById({ userId: clerkId });
   } else {
     return redirect("/sign-in");
   }
