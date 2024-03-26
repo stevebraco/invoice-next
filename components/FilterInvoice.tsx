@@ -13,7 +13,7 @@ const FilterInvoice = () => {
   };
 
   return (
-    <div className="flex items-center gap-0 sm:gap-6 ">
+    <div className="flex items-center gap-5 sm:gap-6 ">
       <FilterStatus />
       <Button
         className="btn btn-primary h-12 w-[100px] sm:w-[155px]"

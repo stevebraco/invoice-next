@@ -88,6 +88,7 @@ export type IdParams = {
 };
 
 export type GetInvoiceParams = {
+  userId?: string;
   filter: string | undefined;
   page?: number;
   pageSize?: number;

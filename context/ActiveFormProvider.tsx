@@ -7,11 +7,13 @@ interface ActiveFormType {
   activeForm: {
     active?: boolean;
     formValue?: Invoice | {};
+    userId?: string;
   };
   setActiveForm: React.Dispatch<
     React.SetStateAction<{
       active: boolean;
       formValue: Invoice | {};
+      userId: string;
     }>
   >;
 }
@@ -26,6 +28,7 @@ export function ActiveFormProvider({
   const [activeForm, setActiveForm] = useState({
     active: false,
     formValue: {},
+    userId: "",
   });
 
   return (

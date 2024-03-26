@@ -16,6 +16,8 @@ const useHookForm = (id?: string | undefined) => {
   const { activeForm, setActiveForm } = useActiveForm();
   const { toast } = useToast();
 
+  console.log(activeForm);
+
   const onSubmit = async (data: FormValues) => {
     if (id) {
       const itemTotal = methods.getValues().items.map((item) => ({
@@ -66,7 +68,7 @@ const useHookForm = (id?: string | undefined) => {
     toast({
       title: "The invoice has been successfully created.  🎉🎉🎉",
     });
-    setActiveForm({ active: false, formValue: {} });
+    setActiveForm((prev) => ({ ...prev, active: false, formValue: {} }));
   };
 
   const handleDraft = async () => {
@@ -86,12 +88,13 @@ const useHookForm = (id?: string | undefined) => {
       ...invoiceMethod(date, methods.getValues()),
       items: itemTotal,
       total,
+      author: activeForm.userId,
     };
     await createInvoice({ invoice, path: pathname });
     toast({
       title: "The draft has been successfully saved.  🎉🎉🎉",
     });
-    setActiveForm({ active: false, formValue: {} });
+    setActiveForm((prev) => ({ ...prev, active: false, formValue: {} }));
   };
 
   const handleDiscard = () => {

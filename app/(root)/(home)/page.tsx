@@ -2,10 +2,23 @@ import FilterInvoice from "@/components/FilterInvoice";
 import InvoiceList from "@/components/InvoiceList";
 import Pagination from "@/components/Pagination";
 import { getInvoices } from "@/lib/actions/invoices.action";
+import { getUserById } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default async function Home({ searchParams }: SearchParamsProps) {
+  const { userId: clerkId } = auth();
+  let mongoUser;
+
+  if (clerkId) {
+    mongoUser = await getUserById({ clerkId });
+  } else {
+    return redirect("/sign-in");
+  }
+
   const { invoices, isNext } = await getInvoices({
+    userId: mongoUser?._id,
     filter: searchParams.filter,
     page: searchParams.page ? +searchParams.page : 1,
   });
@@ -26,7 +39,10 @@ export default async function Home({ searchParams }: SearchParamsProps) {
         </div>
         <FilterInvoice />
       </div>
-      <InvoiceList invoices={result} />
+      <InvoiceList
+        invoices={result}
+        mongoUserId={JSON.stringify(mongoUser?._id)}
+      />
       <Pagination
         pageNumber={searchParams?.page ? +searchParams.page : 1}
         isNext={isNext}

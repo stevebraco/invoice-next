@@ -1,24 +1,25 @@
-"use client";
-import LeftSideBar from "@/components/LeftSideBar";
-import { useActiveForm } from "@/context/ActiveFormProvider";
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
+import NavLeft from "@/components/NavLeft";
+import { auth } from "@clerk/nextjs";
+import { getUserById } from "@/lib/actions/user.action";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  const { activeForm } = useActiveForm();
+const layout = async ({ children }: { children: React.ReactNode }) => {
+  const { userId: clerkId } = auth();
+  let mongoUser;
+  if (clerkId) {
+    mongoUser = await getUserById({ userId: clerkId });
+    console.log("clerkId", clerkId);
+    console.log("mongoUser", mongoUser);
+  }
   return (
     <main className="h-full">
-      <div
-        className={`flex flex-col md:flex-row background-main relative h-full  ${
-          activeForm.active ? "overflow-hidden" : ""
-        }  `}
-      >
-        <LeftSideBar />
+      <NavLeft userId={JSON.stringify(mongoUser?._id)}>
         <div className="mx-auto w-fullmx-auto w-full max-w-2xl pb-20 px-3">
           {children}
         </div>
         <Toaster />
-      </div>
+      </NavLeft>
     </main>
   );
 };

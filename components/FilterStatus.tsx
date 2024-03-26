@@ -42,11 +42,8 @@ const FilterStatus = () => {
         onValueChange={handleUpdateParams}
         defaultValue={paramFilter || undefined}
       >
-        <SelectTrigger className="hidden sm:inline-flex w-[150px] border-none focus:ring-transparent focus:ring-[#F8F8FB] dark:text-primary-100 ">
+        <SelectTrigger className="sm:inline-flex sm:w-[150px] w-[75px] border-none focus:ring-transparent focus:ring-[#F8F8FB] dark:text-primary-100 ">
           <SelectValue placeholder="Filter by status" />
-        </SelectTrigger>
-        <SelectTrigger className=" sm:hidden w-[75px] border-none focus:ring-transparent focus:ring-[#F8F8FB] dark:text-primary-100 ">
-          <SelectValue placeholder="Filter" />
         </SelectTrigger>
         <SelectContent className="border-none bg-primary-100 dark:bg-[#252945] dark:text-primary-100">
           <SelectGroup>

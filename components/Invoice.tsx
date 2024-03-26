@@ -142,7 +142,7 @@ const Invoice = ({ invoice }: Props) => {
           </TableFooter>
         </Table>
       </div>
-      <div className="sm:hidden bg-[#F9FAFE] rounded-lg ">
+      <div className="sm:hidden bg-[#F9FAFE] dark:bg-[#252945] rounded-lg ">
         {invoice.items.map((item: Item) => (
           <div
             key={item.id || item.name}

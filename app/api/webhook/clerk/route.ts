@@ -6,8 +6,11 @@ import { Webhook } from "svix";
 import { WebhookEvent } from "@clerk/nextjs/server";
 
 import { createUser, deleteUser } from "@/lib/actions/user.action";
+import { toast, useToast } from "@/components/ui/use-toast";
 
 export async function POST(req: Request) {
+  const { toast } = useToast();
+
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.NEXT_CLERK_WEBHOOK_SECRET;
 
@@ -71,7 +74,9 @@ export async function POST(req: Request) {
       picture: image_url,
     });
 
-    console.log("test", mongoUser);
+    toast({
+      title: "Your account has been successfully created.  🎉🎉🎉",
+    });
 
     return NextResponse.json({ message: "User created", user: mongoUser });
   }

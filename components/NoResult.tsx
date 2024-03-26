@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { insertManyInvoice } from "@/lib/actions/invoices.action";
 import { useActiveForm } from "@/context/ActiveFormProvider";
 
-const NoResult = () => {
+const NoResult = ({ mongoUserId }: { mongoUserId: string }) => {
   const path = usePathname();
   const handleCreateInvoices = async () => {
-    await insertManyInvoice({ path });
+    await insertManyInvoice({ author: JSON.parse(mongoUserId), path });
   };
   const { setActiveForm } = useActiveForm();
   return (

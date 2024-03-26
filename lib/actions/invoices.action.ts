@@ -13,6 +13,7 @@ import {
   UpdateStatusPaidParams,
 } from "@/types";
 import { invoices } from "@/constants/invoices";
+import path from "path";
 
 export async function getInvoices(params: GetInvoiceParams) {
   try {
@@ -20,7 +21,7 @@ export async function getInvoices(params: GetInvoiceParams) {
 
     const query: FilterQuery<typeof Invoices> = {};
 
-    const { page = 1, pageSize = 10, filter } = params;
+    const { userId, page = 1, pageSize = 10, filter } = params;
 
     const skipAmount = (page - 1) * pageSize;
 
@@ -40,7 +41,7 @@ export async function getInvoices(params: GetInvoiceParams) {
         break;
     }
 
-    const results = await Invoices.find(sortOptions)
+    const results = await Invoices.find({ author: userId, ...sortOptions })
       // .sort(sortOptions)
       .skip(skipAmount)
       .limit(pageSize);
@@ -141,10 +142,12 @@ export async function UpdateInvoice(params: UpdateParams) {
 
 export async function insertManyInvoice(params: any) {
   try {
-    const { path } = params;
+    const { path, author } = params;
     connectToDatabase();
 
-    await Invoices.insertMany(invoices);
+    const insertInvoices = invoices.map((invoice) => ({ ...invoice, author }));
+    console.log(insertInvoices);
+    await Invoices.insertMany(insertInvoices);
 
     revalidatePath(path);
   } catch (error) {
