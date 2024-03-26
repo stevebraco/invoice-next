@@ -13,6 +13,8 @@ export default async function Home({ searchParams }: SearchParamsProps) {
 
   if (clerkId) {
     mongoUser = await getUserById({ userId: clerkId });
+  } else {
+    return redirect("/sign-in");
   }
 
   const { invoices, isNext } = await getInvoices({
