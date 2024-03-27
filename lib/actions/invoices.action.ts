@@ -146,7 +146,6 @@ export async function insertManyInvoice(params: any) {
     connectToDatabase();
 
     const insertInvoices = invoices.map((invoice) => ({ ...invoice, author }));
-    console.log(insertInvoices);
     await Invoices.insertMany(insertInvoices);
 
     revalidatePath(path);

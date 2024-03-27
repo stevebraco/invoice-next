@@ -32,8 +32,6 @@ export async function deleteUser(params: DeleteUserParams) {
       "_id"
     );
 
-    console.log(userQuestionIds);
-
     // delete user questions
     await Invoices.deleteMany({ author: user._id });
 
@@ -51,7 +49,6 @@ export async function getUserById(params: any) {
     connectToDatabase();
 
     const { userId } = params;
-    console.log("user", userId);
 
     const user = await User.findOne({ clerkId: userId });
 

@@ -53,12 +53,9 @@ const InvoiceButtons = ({
       if (Object.hasOwnProperty.call(data, key)) {
         const value = data[key];
         if (typeof value === "string" && value.trim() === "") {
-          console.log(value);
           return true;
         }
         if (typeof value === "object" && isEmpty(value)) {
-          console.log(value);
-
           return true;
         }
       }

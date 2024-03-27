@@ -9,8 +9,6 @@ const layout = async ({ children }: { children: React.ReactNode }) => {
   let mongoUser;
   if (clerkId) {
     mongoUser = await getUserById({ userId: clerkId });
-    console.log("clerkId", clerkId);
-    console.log("mongoUser", mongoUser);
   }
   return (
     <main className="h-full">
