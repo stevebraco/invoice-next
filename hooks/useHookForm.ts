@@ -16,8 +16,6 @@ const useHookForm = (id?: string | undefined) => {
   const { activeForm, setActiveForm } = useActiveForm();
   const { toast } = useToast();
 
-  console.log(activeForm);
-
   const onSubmit = async (data: FormValues) => {
     if (id) {
       const itemTotal = methods.getValues().items.map((item) => ({
@@ -62,7 +60,6 @@ const useHookForm = (id?: string | undefined) => {
       total,
       author: activeForm.userId,
     };
-    console.log(invoice);
 
     await createInvoice({ invoice, path: pathname });
     toast({
