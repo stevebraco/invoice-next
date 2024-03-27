@@ -45,7 +45,7 @@ const ButtonsForm = ({
           <div className="space-x-3">
             <Button
               type="button"
-              className="btn-dark px-4 md:px-0"
+              className="btn-dark px-4 md:px-6"
               onClick={handleDraft}
               size="lg"
             >
