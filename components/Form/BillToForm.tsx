@@ -22,21 +22,23 @@ const BillToForm = ({ control, errors, register }: BillProps) => {
         errorMessage={errors?.billToAddress?.message}
         register={register("billToAddress")}
       />
-      <div className="flex gap-6">
-        <InputLabel
-          control={control}
-          label="City"
-          name="billToCity"
-          errorMessage={errors?.billToCity?.message}
-          register={register("billToCity")}
-        />
-        <InputLabel
-          control={control}
-          label="Post Code"
-          name="billToPostCode"
-          errorMessage={errors?.billToPostCode?.message}
-          register={register("billToPostCode")}
-        />
+      <div className="flex flex-col md:flex-row md:gap-6 gap-0">
+        <div className="flex flex-row gap-6 w-full">
+          <InputLabel
+            control={control}
+            label="City"
+            name="billToCity"
+            errorMessage={errors?.billToCity?.message}
+            register={register("billToCity")}
+          />
+          <InputLabel
+            control={control}
+            label="Post Code"
+            name="billToPostCode"
+            errorMessage={errors?.billToPostCode?.message}
+            register={register("billToPostCode")}
+          />
+        </div>
         <InputLabel
           control={control}
           label="Country"

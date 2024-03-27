@@ -17,12 +17,6 @@ const GoBack = ({
 
   return (
     <div className={`${classNames} mt-2 pt-14 flex items-baseline gap-1`}>
-      <Image
-        src="/assets/icon-arrow-left.svg"
-        width={8}
-        height={4}
-        alt="arrow left"
-      />
       <Button
         className="h3-12"
         onClick={() => {
@@ -34,7 +28,13 @@ const GoBack = ({
           }));
         }}
       >
-        Go back
+        <Image
+          src="/assets/icon-arrow-left.svg"
+          width={8}
+          height={4}
+          alt="arrow left"
+        />
+        <span className="ml-4">Go back</span>
       </Button>
     </div>
   );

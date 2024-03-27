@@ -24,7 +24,7 @@ const InputLabel = ({
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem className={`mt-6`}>
+        <FormItem className={`mt-6 w-full md:w-auto`}>
           <div className="flex justify-between">
             <FormLabel
               className={`text-xs mb-[5px] text-light-200 dark:text-[#DFE3FA] ${

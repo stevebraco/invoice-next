@@ -66,7 +66,7 @@ const FullForm = () => {
             : "transition-transform duration-500 ease-in-out translate-x-[-100%]"
         } `}
       >
-        <GoBack link={pathname} classNames="pt-6 mb-4 px-14 sm:hidden" />
+        <GoBack link={pathname} classNames="pt-6 mb-4 px-8 sm:hidden" />
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <div className="pb-10 px-14">

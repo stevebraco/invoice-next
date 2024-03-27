@@ -33,7 +33,7 @@ const ButtonsForm = ({
           </Button>
         </div>
       ) : (
-        <div className="flex justify-between items-center  bg-primary-100 dark:bg-[#141625] sticky md:bottom-0 bottom-[70px] left-0 right-0 px-8 h-[110px] shadow-light-100 dark:shadow-dark-100 ">
+        <div className="flex justify-between items-center  bg-primary-100 dark:bg-[#141625] sticky md:bottom-0 bottom-[70px] left-0 right-0 md:px-8 px-2 h-[110px] shadow-light-100 dark:shadow-dark-100 ">
           <Button
             className="btn btn-light rounded-full"
             size="lg"
@@ -45,7 +45,7 @@ const ButtonsForm = ({
           <div className="space-x-3">
             <Button
               type="button"
-              className="btn-dark"
+              className="btn-dark px-4 md:px-0"
               onClick={handleDraft}
               size="lg"
             >

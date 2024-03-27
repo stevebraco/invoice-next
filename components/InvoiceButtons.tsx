@@ -91,7 +91,7 @@ const InvoiceButtons = ({
   return (
     <div
       className={`${containerClassNames} ${
-        activeForm.active ? "z-0" : "z-10"
+        activeForm.active ? "-z-0" : "z-10"
       } sm:z-0 flex sm:space-x-3 sm:relative sm:justify-normal sm:w-auto`}
     >
       <Button

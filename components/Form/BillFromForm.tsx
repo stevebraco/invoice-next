@@ -58,21 +58,23 @@ const BillFromForm = ({
         errorMessage={errors?.billFromAddress?.message}
         register={register("billFromAddress")}
       />
-      <div className="flex gap-6">
-        <InputLabel
-          control={control}
-          label="City"
-          name="billFromCity"
-          errorMessage={errors?.billFromCity?.message}
-          register={register("billFromCity")}
-        />
-        <InputLabel
-          control={control}
-          label="Post Code"
-          name="billFromPostCode"
-          errorMessage={errors?.billFromPostCode?.message}
-          register={register("billFromPostCode")}
-        />
+      <div className="flex flex-col md:flex-row md:gap-6 gap-0">
+        <div className="flex flex-row gap-6">
+          <InputLabel
+            control={control}
+            label="City"
+            name="billFromCity"
+            errorMessage={errors?.billFromCity?.message}
+            register={register("billFromCity")}
+          />
+          <InputLabel
+            control={control}
+            label="Post Code"
+            name="billFromPostCode"
+            errorMessage={errors?.billFromPostCode?.message}
+            register={register("billFromPostCode")}
+          />
+        </div>
         <InputLabel
           control={control}
           label="Country"
